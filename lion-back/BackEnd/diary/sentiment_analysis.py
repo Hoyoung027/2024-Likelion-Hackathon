@@ -12,11 +12,13 @@ from transformers import BertTokenizer, BertModel
 import torch.nn as nn
 import numpy as np
 
+import os
+
 # Naver 감정분석 API 적용 함수
 def sentimentAnalysis(content) :
 
-    client_id = "si864t2no6"
-    client_secret = "vqANYK9YmnSil4Iy6nYaY4qtKNYvESRsuaBlhB2t"
+    client_id = os.getenv('CLIENT_ID')
+    client_secret = os.getenv('CLIENT_SECRET')
     url="https://naveropenapi.apigw.ntruss.com/sentiment-analysis/v1/analyze"
 
     headers = {
